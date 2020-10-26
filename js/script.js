@@ -172,18 +172,21 @@ let appData = {
     }
 };
 
+start.disabled = true;
+
+salaryAmount.addEventListener('input', function(){
+    if (salaryAmount.value.trim() === '') {
+        start.disabled = true;
+    } else {
+        start.disabled = false;
+    }
+});
+
+start.addEventListener('click', appData.start);
+
 expensesPlus.addEventListener('click', appData.additionalExpensesBlock);
 incomePlus.addEventListener('click', appData.additionalIncomeBlock);
 periodSelect.addEventListener('change', appData.getPeriodAmount, );
-
-start.setAttribute('disabled', '0');
-
-salaryAmount.addEventListener('input', () => {
-    if(salaryAmount.value !== ''){
-        start.removeAttribute('disabled');
-    }else {
-        start.setAttribute('disabled', '0');}
-});
 
 // if (appData.getTargetMonth() > 0) {
 //   console.log('Цель будет достигнута за ' + Math.ceil(appData.getTargetMonth()) + ' месяца');
