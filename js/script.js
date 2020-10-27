@@ -140,11 +140,11 @@ let appData = {
             let cashIncome = item.querySelector('.income-amount').value;
 
             if(itemIncome !== '' && cashIncome !== '') {
-                this.income[itemIncome] = cashIncome;
+                appData.income[itemIncome] = cashIncome;
                
                 
-                for (let key in this.income) {
-                    this.incomeMonth += +this.income[key];
+                for (let key in appData.income) {
+                    appData.incomeMonth += +appData.income[key];
                 }
             }
         });
@@ -155,7 +155,7 @@ let appData = {
         addExpenses.forEach(function (item) {
           item = item.trim();
           if (item !== '') {
-            this.addExpenses.push(item);
+            appData.addExpenses.push(item);
           }
         });
     },
@@ -164,7 +164,7 @@ let appData = {
         additionalIncomeItem.forEach(function(item) {
             let itemValue = item.value.trim();
             if (itemValue !== '') {
-              this.addIncome.push(itemValue);
+              appData.addIncome.push(itemValue);
             }
         });
     },
