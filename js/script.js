@@ -27,19 +27,19 @@ let start = document.getElementById('start'),
     incomeItems = document.querySelectorAll('.income-items');
 
 let appData = {
-    budget: 0,
-    budgetDay: 0,
-    budgetMonth: 0,
-    income: {},
-    incomeMonth: 0,
-    addIncome: [],
-    expenses: {},
-    expensesMonth: 0,
-    addExpenses: [],
-    deposit: false,
-    percentDeposit: 0,
-    moneyDeposit: 0,
-    start: function () {
+  budget: 0,
+  budgetDay: 0,
+  budgetMonth: 0,
+  income: {},
+  incomeMonth: 0,
+  addIncome: [],
+  expenses: {},
+  expensesMonth: 0,
+  addExpenses: [],
+  deposit: false,
+  percentDeposit: 0,
+  moneyDeposit: 0,
+  start: function () {
       
       this.budget = +salaryAmount.value;
 
@@ -70,7 +70,7 @@ let appData = {
     },
 
     blocked: function(){
-      document.querySelectorAll('.data input[type=text]').forEach(function(item){
+      document.querySelectorAll('.data input[type="text"]').forEach(function(item){
         item.disabled = true;
       });
       start.style.display = 'none';
@@ -78,14 +78,13 @@ let appData = {
     },
 
     unblocked: function(){
-      cancel.addEventListener('click', function(){
-
-        document.querySelectorAll('.data input[type=text]').forEach(function(item) {
+        cancel.addEventListener('click', function(){
+          document.querySelectorAll('.data input[type="text"]').forEach(function(item) {
           item.disabled = false;
           item.value = '';
         });
 
-        document.querySelectorAll('.result input[type=text]').forEach(function(item){
+        document.querySelectorAll('.result input[type="text"]').forEach(function(item){
           item.disabled = false;
           item.value = '';
         });
@@ -94,8 +93,13 @@ let appData = {
         cancel.style.display = 'none';
 
         start.disabled = true;
-        salaryAmount.addEventListener('input', function() {
-          start.disabled = salaryAmount.value.trim() === '';
+
+        salaryAmount.addEventListener('input', function(){
+          if (salaryAmount.value.trim() === '') {
+            start.disabled = true;
+          } else {
+            start.disabled = false;
+          }
         });
       });
     },
