@@ -56,6 +56,21 @@ let appData = {
       this.unblocked();
     },
 
+    reset: function() {
+      appData.budget = 0;
+      appData.budgetDay = 0;
+      appData.budgetMonth = 0;
+      appData.income = {};
+      appData.incomeMonth = 0;
+      appData.addIncome = [];
+      appData.expenses = {};
+      appData.expensesMonth = 0;
+      appData.addExpenses = [];
+      appData.deposit = false;
+      appData.percentDeposit = 0;
+      appData.moneyDeposit = 0;
+    },
+
     showResult: function() {
         budgetMonthValue.value = this.budgetMonth;
         budgetDayValue.value = this.budgetDay;
@@ -79,6 +94,9 @@ let appData = {
 
     unblocked: function(){
         cancel.addEventListener('click', function(){
+
+          appData.reset(); //сбросить все
+
           document.querySelectorAll('.data input[type="text"]').forEach(function(item) {
           item.disabled = false;
           item.value = '';
@@ -164,7 +182,7 @@ let appData = {
         additionalIncomeItem.forEach(function(item) {
             let itemValue = item.value.trim();
             if (itemValue !== '') {
-              appData.addIncome.push(itemValue);
+              appData.push(itemValue);
             }
         });
     },
