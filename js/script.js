@@ -26,7 +26,7 @@ let start = document.getElementById('start'),
     targetAmount = document.querySelector('.target-amount'),
     incomeItems = document.querySelectorAll('.income-items');
 
-let appData = {
+let appData = { 
   budget: 0,
   budgetDay: 0,
   budgetMonth: 0,
