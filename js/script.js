@@ -229,3 +229,5 @@ start.addEventListener('click', appData.start.bind(appData));
 expensesPlus.addEventListener('click', appData.additionalExpensesBlock);
 incomePlus.addEventListener('click', appData.additionalIncomeBlock);
 periodSelect.addEventListener('change', appData.getPeriodAmount);
+
+
