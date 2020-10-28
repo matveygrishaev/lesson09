@@ -182,7 +182,7 @@ let appData = {
         additionalIncomeItem.forEach(function(item) {
             let itemValue = item.value.trim();
             if (itemValue !== '') {
-              appData.push(itemValue);
+              appData.addIncome.push(itemValue);
             }
         });
     },
